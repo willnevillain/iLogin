@@ -1,48 +1,47 @@
 //
 //  SiteValue.h
-//  Logins
+//  iLogin
 //
-//  Created by William Neville on 2/10/14.
+//  Created by William Neville on 3/2/14.
 //  Copyright (c) 2014 William Neville. All rights reserved.
 //
-//  Interface for SiteValue, an Object that stores login information to
-//  different web services. See SiteValue.m for more detailed information on
-//  each method.
+//  A tweaked version of the SiteValue class from Assignment 1 that will be
+//  used for Assignment 2
 
 #import <Foundation/Foundation.h>
 
 @interface SiteValue : NSObject {
+  NSString *website;
   NSString *username;
   NSString *password;
-  int count;
+  NSUInteger count;
+  NSUInteger position;
 }
 //Setters
+- (void)setWebsite:(NSString *)newWebsite;
 - (void)setUsername:(NSString *)newUsername;
 - (void)setPassword:(NSString *)newPassword;
-- (void)setCount:(int)newCount;
-+ (void)setLogin:(NSMutableDictionary *)newLogin;
+- (void)setCount:(NSUInteger)newCount;
+- (void)setPosition:(NSUInteger)newPosition;
 
 //Getters
+- (NSString *)website;
 - (NSString *)username;
 - (NSString *)password;
-- (int)count;
-+ (NSMutableDictionary *)login;
+- (NSUInteger)count;
+- (NSUInteger)position;
 
-- (void)print;
-+ (void)printDictionary;
-+ (BOOL)addToDictionaryWithKey:(NSString *)theKey
+//Other methods
+- (void)increaseCount;
++ (SiteValue *)siteValueWithWebsite:(NSString *)theWebsite
+                        andUsername:(NSString *)theUsername
+                         andPassword:(NSString *)thePassword
+                            andCount:(NSUInteger)theCount
+                          atPosition:(NSUInteger)thePosition;
+- (SiteValue *)initWithWebsite:(NSString *)theWebsite
                    andUsername:(NSString *)theUsername
                    andPassword:(NSString *)thePassword
-                      andCount:(int)theCount;
-+ (BOOL)addToDictionaryWithKey:(NSString *)theKey
-                   andUsername:(NSString *)theUsername
-                   andPassword:(NSString *)thePassword;
-- (void)increaseCount;
-+ (SiteValue *)siteValueWithUsername:(NSString *)theUsername
-                         andPassword:(NSString *)thePassword
-                            andCount:(int)theCount;
-- (SiteValue *)initWithUsername:(NSString *)theUsername
-                    andPassword:(NSString *)thePassword
-                       andCount:(int)theCount;
+                      andCount:(NSUInteger)theCount
+                    atPosition:(NSUInteger)thePosition;
 
 @end

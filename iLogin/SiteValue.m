@@ -13,10 +13,11 @@
 
 @implementation SiteValue
 
-//Declared static so that the same dictionary is shared amongst all SiteValues
-static NSMutableDictionary *login;
-
 //Begin getters and setters
+- (void)setWebsite:(NSString *)newWebsite {
+  website = newWebsite;
+}
+
 - (void)setUsername:(NSString *)newUsername {
   username = newUsername;
 }
@@ -25,12 +26,16 @@ static NSMutableDictionary *login;
   password = newPassword;
 }
 
-- (void)setCount:(int)newCount {
+- (void)setCount:(NSUInteger)newCount {
   count = newCount;
 }
 
-+ (void)setLogin:(NSMutableDictionary *)newLogin {
-  login = newLogin;
+- (void)setPosition:(NSUInteger)newPosition {
+  position = newPosition;
+}
+
+- (NSString *)website {
+  return website;
 }
 
 - (NSString *)username {
@@ -41,84 +46,45 @@ static NSMutableDictionary *login;
   return password;
 }
 
-- (int)count {
+- (NSUInteger)count {
   return count;
 }
 
-+ (NSMutableDictionary *)login {
-  return login;
+- (NSUInteger)position {
+  return position;
 }
-
 //end getters and setters
-
-//Printing out the state of the SiteValue object in an appealing way.
-- (void)print {
-  NSLog(@"Username = %@\nPassword = %@\nNumber of logins = %d",
-        username, password, count);
-}
-
-+ (void)printDictionary {
-  for(NSString *key in login) {
-    NSLog(@"Key: %@", key);
-    [[login objectForKey:key] print];
-  }
-}
-
-//Add a SiteValue to a login dictionary, duplicate usernames not allowed
-+ (BOOL)addToDictionaryWithKey:(NSString *)theKey
-                   andUsername:(NSString *)theUsername
-                   andPassword:(NSString *)thePassword
-                      andCount:(int)theCount {
-  //Lazy instantiation of the dictionary
-  if(!login) {
-    login = [[NSMutableDictionary alloc] init];
-  }
-  //If username already exists, do not add to the dictionary
-  for(NSString *key in login) {
-    if([[[login objectForKey:key] username]
-        isEqualToString:theUsername]) {
-      return NO;
-    }
-  }
-  [login setObject:[SiteValue siteValueWithUsername:theUsername
-                                                andPassword:thePassword
-                                                   andCount:theCount]
-                    forKey:theKey];
-  return YES;
-}
-
-//Overloaded version of above method that defaults count to 0
-+ (BOOL)addToDictionaryWithKey:(NSString *)theKey
-                   andUsername:(NSString *)theUsername
-                   andPassword:(NSString *)thePassword {
-  return [SiteValue addToDictionaryWithKey:theKey
-                               andUsername:theUsername
-                               andPassword:thePassword
-                                  andCount:0];
-}
 
 - (void)increaseCount {
   count++;
 }
 
 //Class method that calls the relevant init method
-+ (SiteValue *)siteValueWithUsername:(NSString *)theUsername
-                         andPassword:(NSString *)thePassword
-                            andCount:(int)theCount {
-  return [[SiteValue alloc] initWithUsername:theUsername
-                                 andPassword:thePassword
-                                    andCount:theCount];
++ (SiteValue *)siteValueWithWebsite:(NSString *)theWebsite
+                        andUsername:(NSString *)theUsername
+                        andPassword:(NSString *)thePassword
+                           andCount:(NSUInteger)theCount
+                         atPosition:(NSUInteger)thePosition {
+  return [[SiteValue alloc] initWithWebsite:theWebsite
+                                andUsername:theUsername
+                                andPassword:thePassword
+                                   andCount:theCount
+                                 atPosition:thePosition];
 }
 
 //Initialization method that set username and password accordingly
-- (SiteValue *)initWithUsername:(NSString *)theUsername
-                    andPassword:(NSString *)thePassword
-                       andCount:(int)theCount {
+- (SiteValue *)initWithWebsite:(NSString *)theWebsite
+                   andUsername:(NSString *)theUsername
+                   andPassword:(NSString *)thePassword
+                      andCount:(NSUInteger)theCount
+                    atPosition:(NSUInteger)thePosition {
   self = [super init];
   if (self) {
+    website = theWebsite;
     username = theUsername;
     password = thePassword;
     count = theCount;
+    position = thePosition;
   }
   return self;
 }
