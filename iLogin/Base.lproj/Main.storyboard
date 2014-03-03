@@ -7,7 +7,7 @@
         <!--View Controller - homeView-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="homeView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeView" title="homeView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QwJ-0P-rfO"/>
                         <viewControllerLayoutGuide type="bottom" id="smh-3b-KJ8"/>
@@ -112,8 +112,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addEntry:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h1L-vd-NdX"/>
-                                    <segue destination="qfh-Ps-8of" kind="push" id="HWS-ga-XHI"/>
+                                    <action selector="addEntry:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xjg-jm-b1z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,26 +127,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-43" y="71"/>
+            <point key="canvasLocation" x="-171" y="71"/>
         </scene>
-        <!--View Controller - addEntry-->
-        <scene sceneID="hyX-mV-nxK">
+        <!--View Controller-->
+        <scene sceneID="dRD-Ui-jU6">
             <objects>
-                <viewController title="addEntry" id="qfh-Ps-8of" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addEntryScene" id="Yw7-17-oaf" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0SJ-Zi-lr2"/>
-                        <viewControllerLayoutGuide type="bottom" id="52w-nP-BhU"/>
+                        <viewControllerLayoutGuide type="top" id="H6f-xc-dE4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zT8-YE-jIh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Z9y-SD-JoZ">
+                    <view key="view" contentMode="scaleToFill" id="6T2-6k-GvT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5mQ-HY-ei0"/>
+                    <navigationItem key="navigationItem" id="dpj-uJ-5hm"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mg0-mR-0Vv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hk4-Cz-yk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="71"/>
+            <point key="canvasLocation" x="272" y="71"/>
         </scene>
     </scenes>
     <resources>

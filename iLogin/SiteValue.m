@@ -13,50 +13,9 @@
 
 @implementation SiteValue
 
-//Begin getters and setters
-- (void)setWebsite:(NSString *)newWebsite {
-  website = newWebsite;
-}
-
-- (void)setUsername:(NSString *)newUsername {
-  username = newUsername;
-}
-
-- (void)setPassword:(NSString *)newPassword {
-  password = newPassword;
-}
-
-- (void)setCount:(NSUInteger)newCount {
-  count = newCount;
-}
-
-- (void)setPosition:(NSUInteger)newPosition {
-  position = newPosition;
-}
-
-- (NSString *)website {
-  return website;
-}
-
-- (NSString *)username {
-  return username;
-}
-
-- (NSString *)password {
-  return password;
-}
-
-- (NSUInteger)count {
-  return count;
-}
-
-- (NSUInteger)position {
-  return position;
-}
-//end getters and setters
 
 - (void)increaseCount {
-  count++;
+  [self setCount:([self count]+1)];
 }
 
 //Class method that calls the relevant init method
@@ -80,11 +39,11 @@
                     atPosition:(NSUInteger)thePosition {
   self = [super init];
   if (self) {
-    website = theWebsite;
-    username = theUsername;
-    password = thePassword;
-    count = theCount;
-    position = thePosition;
+    [self setWebsite:theWebsite];
+    [self setUsername:theUsername];
+    [self setPassword:thePassword];
+    [self setCount:theCount];
+    [self setPosition:thePosition];
   }
   return self;
 }
