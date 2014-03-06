@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 William Neville. All rights reserved.
 //
 //  Implementation for SiteValue, an Object that stores login information to
-//  different web services. The NSMutableDictionary *login is shared by all
-//  site values, and should not be initialized directly.
+//  different web services. These objects will be used in an array to store
+//  the different logins that the user enters in the main app.
 
 #import "SiteValue.h"
 
