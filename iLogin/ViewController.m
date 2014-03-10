@@ -74,7 +74,11 @@
 /* Runs when add new entry view returns. Adds a new SiteValue
  entry into the array */
 - (IBAction)completeAddToArray:(UIStoryboardSegue *)segue {
-  [self.entries addObject:[SiteValue siteValueWithWebsite:self.tempToAdd.website andUsername:self.tempToAdd.username andPassword:self.tempToAdd.password andCount:0 atPosition:self.entries.count]];
+  [self.entries addObject:[SiteValue siteValueWithWebsite:self.tempToAdd.website
+                                              andUsername:self.tempToAdd.username a
+                                               ndPassword:self.tempToAdd.password 
+                                                 andCount:0 
+                                               atPosition:self.entries.count]];
   self.position = self.entries.count - 1;
   [self setFields];
 }
